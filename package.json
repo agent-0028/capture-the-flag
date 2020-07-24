@@ -1,0 +1,22 @@
+{
+  "name": "capture-the-flag",
+  "version": "1.0.0",
+  "description": "",
+  "main": "keyboardclient.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agent-0028/capture-the-flag.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agent-0028/capture-the-flag/issues"
+  },
+  "homepage": "https://github.com/agent-0028/capture-the-flag#readme",
+  "dependencies": {
+    "game-client": "github:danthompson/capture-the-flag-client-js"
+  }
+}
