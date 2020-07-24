@@ -23,16 +23,32 @@ api.getPlayer().then(function(data) {
 
 process.stdin.on('keypress', (str, key) => {
   if (key.name === 'up') {
-    api.postMoves('north')
+    api.postMoves('north').then(function(data) {
+      console.log('Moved North. Returned data: ' + JSON.stringify(data, null, '  '));
+    }, function(error) {
+      console.error(error);
+    });
   }
   if (key.name === 'right') {
-    api.postMoves('east')
+    api.postMoves('east').then(function(data) {
+      console.log('Moved East. Returned data: ' + JSON.stringify(data, null, '  '));
+    }, function(error) {
+      console.error(error);
+    });
   }
   if (key.name === 'down') {
-    api.postMoves('south')
+    api.postMoves('south').then(function(data) {
+      console.log('Moved South. Returned data: ' + JSON.stringify(data, null, '  '));
+    }, function(error) {
+      console.error(error);
+    });
   }
   if (key.name === 'left') {
-    api.postMoves('west')
+    api.postMoves('west').then(function(data) {
+      console.log('Moved West. Returned data: ' + JSON.stringify(data, null, '  '));
+    }, function(error) {
+      console.error(error);
+    });
   }
   if (key.name === 'q') {
     process.exit()
