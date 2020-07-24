@@ -11,7 +11,7 @@ defaultClient.basePath = "http://td-capture-the-flag.herokuapp.com/api" // https
 
 // Configure Bearer access token for authorization: token
 var token = defaultClient.authentications['token'];
-token.accessToken = "chris@testdouble.com" // alice@example.com
+token.accessToken = "kyle@testdouble.com" // alice@example.com
 
 var api = new GameClient.GameApi()
 
@@ -33,5 +33,8 @@ process.stdin.on('keypress', (str, key) => {
   }
   if (key.name === 'left') {
     api.postMoves('west')
+  }
+  if (key.name === 'q') {
+    process.exit()
   }
 });
