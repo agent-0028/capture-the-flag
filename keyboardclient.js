@@ -2,6 +2,29 @@ const readline = require('readline');
 readline.emitKeypressEvents(process.stdin);
 process.stdin.setRawMode(true);
 
+var keybindings = {
+  vim: {
+    N: 'k',
+    E: 'l',
+    S: 'j',
+    W: 'h'
+  },
+  arrow: {
+    N: 'up',
+    E: 'right',
+    S: 'down',
+    W: 'left'
+  },
+  gamer: {
+    N: 'w',
+    E: 'd',
+    S: 's',
+    W: 'a'
+  }
+}
+
+var k = keybindings[(process.env.PLAYER_KEYS || 'arrow')]
+
 var GameClient = require('game-client');
 
 var defaultClient = GameClient.ApiClient.instance;
@@ -22,28 +45,28 @@ api.getPlayer().then(function(data) {
 });
 
 process.stdin.on('keypress', (str, key) => {
-  if (key.name === 'up') {
+  if (key.name === k.N) {
     api.postMoves('north').then(function(data) {
       console.log('Moved North. Returned data: ' + JSON.stringify(data, null, '  '));
     }, function(error) {
       console.error(error);
     });
   }
-  if (key.name === 'right') {
+  if (key.name === k.E) {
     api.postMoves('east').then(function(data) {
       console.log('Moved East. Returned data: ' + JSON.stringify(data, null, '  '));
     }, function(error) {
       console.error(error);
     });
   }
-  if (key.name === 'down') {
+  if (key.name === k.S) {
     api.postMoves('south').then(function(data) {
       console.log('Moved South. Returned data: ' + JSON.stringify(data, null, '  '));
     }, function(error) {
       console.error(error);
     });
   }
-  if (key.name === 'left') {
+  if (key.name === k.W) {
     api.postMoves('west').then(function(data) {
       console.log('Moved West. Returned data: ' + JSON.stringify(data, null, '  '));
     }, function(error) {
